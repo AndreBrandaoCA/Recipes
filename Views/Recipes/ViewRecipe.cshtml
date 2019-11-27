@@ -1,7 +1,26 @@
-﻿
+﻿@model IEnumerable<Recipe>
 @{
     ViewData["Title"] = "ViewRecipe";
 }
-
-<h2>ViewRecipe</h2>
-
+@foreach (var r in Model)
+{
+    <h5>Id: @r.RecipeId</h5>
+    <h1>@r.RecipeName</h1>
+    <h4>Time to Prepare: @r.TimeToPrepare</h4>
+    <table>
+        <tr><th>Ingredients:</th></tr>
+        <td>@r.Ingredients</td>
+        @*@foreach (var i in r.Ingredients ?? new List<Ingredient>())
+        {
+            @Html.Partial("ListIngredients", i)
+        }*@
+    </table>
+    <table>
+        <tr><th>Instructions:</th></tr>
+        <td>@r.Instructions</td>
+        @*@foreach (var i in r.Instructions ?? new List<Instruction>())
+        {
+            @Html.Partial("ListInstructions", i)
+        }*@
+    </table>
+}

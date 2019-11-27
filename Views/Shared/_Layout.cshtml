@@ -3,44 +3,32 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>MyRecipes - @ViewBag.Title</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/RecipesStyleSheet.css" />
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Menu
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" asp-controller="Recipe" asp-action="Home">Home</a>
-                        <a class="dropdown-item" asp-controller="Recipe" asp-action="RecipeList">List Recipes</a>
-                        <a class="dropdown-item" asp-controller="Recipe" asp-action="ViewRecipe">View Recipe</a>
-                        <a class="dropdown-item" asp-controller="Recipe" asp-action="AddRecipe">Add Recipe</a>
-                        <a class="dropdown-item" asp-controller="Recipe" asp-action="ReviewRecipe">Review Recipe</a>
-                    </div>
-                </li>
-                
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-    <div>
-        @RenderBody()
+<body >
+    <div class="content">
+        <header>
+            <a asp-controller="Recipes" asp-action="Home"><img src="~/img/banner.jpg" height="200" width="980" /></a>
+            <h1>MyRecipes</h1>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rnavbar">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a asp-action="Home" class="btn btn-group navbar-brand ">Home</a>
+                    <a asp-action="List" class="btn btn-group navbar-brand ">List Recipes</a>
+                    @*<a asp-action="AddRecipe" class="btn btn-group navbar-brand">Add Recipes</a>*@
+                    @*<a asp-action="ReadReviews" class="btn btn-group navbar-brand">Read Reviews</a>*@
+                </div>
+            </div>
+        </nav>
+        <article>
+            @RenderBody()
+        </article>
+        <footer>
+            &copy; Andre Brandao Teodoro - Centennial College - Fall 2019
+        </footer>
     </div>
 </body>
 </html>

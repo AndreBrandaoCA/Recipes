@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyRecipes - @ViewBag.Title</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/RecipesStyleSheet.css" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <a asp-controller="Recipes" asp-action="Home"><img src="~/img/banner.jpg" height="200" width="980" /></a>
+            <h1>MyRecipes</h1>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rnavbar">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a asp-action="Index" class="btn btn-group navbar-brand ">Home</a>
+                </div>
+            </div>
+        </nav>
+        <article>
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+            @RenderBody()
+        </article>
+        <footer>
+            &copy; Andre Brandao Teodoro - Centennial College - Fall 2019
+        </footer>
+    </div>
+</body>
+</html>
