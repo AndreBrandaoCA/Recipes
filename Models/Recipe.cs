@@ -18,6 +18,5 @@ namespace Recipes.Models
         public String Ingredients { get; set; }
         [Required(ErrorMessage = "Please enter instructions for the recipe")]
         public String Instructions { get; set; }
-        public String Review { get; set; }
     }
 }

@@ -8,19 +8,17 @@
     <h1>@r.RecipeName</h1>
     <h4>Time to Prepare: @r.TimeToPrepare</h4>
     <table>
-        <tr><th>Ingredients:</th></tr>
-        <td>@r.Ingredients</td>
-        @*@foreach (var i in r.Ingredients ?? new List<Ingredient>())
-        {
-            @Html.Partial("ListIngredients", i)
-        }*@
+        <tr>
+            <td>Ingredients:</td>
+            <td>@r.Ingredients</td>
+        </tr>
     </table>
     <table>
-        <tr><th>Instructions:</th></tr>
-        <td>@r.Instructions</td>
-        @*@foreach (var i in r.Instructions ?? new List<Instruction>())
-        {
-            @Html.Partial("ListInstructions", i)
-        }*@
+        <tr>
+            <td>Instructions:</td>
+            <td>@r.Instructions</td>
+        </tr>
     </table>
+    <a asp-action="AddReview" asp-route-RecipeId="@r.RecipeId">Review this recipe</a>
+    <a asp-action="ReadReview" asp-route-RecipeId="@r.RecipeId">Read Reviews</a>
 }

@@ -14,6 +14,7 @@ namespace Recipes.Models
         }
 
         public IQueryable<Recipe> Recipes => context.Recipes;
+        public IQueryable<Review> Reviews => context.Reviews;
 
         public Recipe DeleteRecipe(int recipeId)
         {
@@ -41,7 +42,23 @@ namespace Recipes.Models
                     recipeEntry.Ingredients = recipe.Ingredients;
                     recipeEntry.Instructions = recipe.Instructions;
                     recipeEntry.TimeToPrepare = recipe.TimeToPrepare;
-                    recipeEntry.Review = recipe.Review;
+                }
+            }
+            context.SaveChanges();
+        }
+        public void SaveReview(Review review)
+        {
+            if (review.RecipeId == 0)
+            {
+                context.Reviews.Add(review);
+            }
+            else
+            {
+                Review reviewEntry = context.Reviews.FirstOrDefault(r => r.RecipeId == review.ReviewId);
+                if (reviewEntry != null)
+                {
+                    reviewEntry.Rating = review.Rating;
+                    reviewEntry.Description = review.Description;
                 }
             }
             context.SaveChanges();

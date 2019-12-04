@@ -1,22 +1,19 @@
-﻿@model IEnumerable<Recipe>
+﻿@model RecipeReviewsViewModel
 @{
     ViewData["Title"] = "ReviewRecipe";
 }
 
 <h2>Recipe Review</h2>
-
+<h4>@Model.Recipe.RecipeName</h4>
 <table class="table table-striped">
     <thead>
-        <th>Recipe</th>
-        <th>Dificulty</th>
-        <th>Taste</th>
-        <th>Timewise</th>
-    
+        <th>Rating</th>
+        <th>Description</th>
     </thead>
-    @foreach (var rev in Model ?? new List<Recipe>())
+    @foreach (var r in Model.Reviews)
     {
-        <td>@rev.RecipeName</td>
-        <td>@rev.Review</td>
+        <td>@r.Rating</td>
+        <td>@r.Description</td>
 
     }
 </table>

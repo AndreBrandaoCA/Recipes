@@ -1,0 +1,14 @@
+﻿@model Review
+
+    <form asp-action="AddReview" method="post">
+        <input type="hidden" asp-for="RecipeId" />
+        <fieldset>
+            <h4>Rating</h4>
+            <input class="addRecipeInput form-control" type="range" min="1" max="5" asp-for="Rating" />
+            <h4>Description</h4>
+            <textarea class="addRecipeInput form-control" rows="5" cols="50" asp-for="Description" /></textarea>
+        </fieldset>
+        <button type="submit">Save Review</button>
+        <button type="reset">Clear</button>
+        <button asp-action="Home">Cancel</button>
+    </form>

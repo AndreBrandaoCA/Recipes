@@ -38,22 +38,45 @@ namespace Recipes.Controllers
                 }
             });
 
-        public ViewResult ReviewRecipe(int RecipeId)
-        {
-            //
-            return View(Repository.Recipes
-                .Where(r => r.RecipeId == RecipeId));
-        }
-        [HttpGet]
-        public ViewResult ReadReview()
-        {
-            return View(Repository.Recipes);
-        }
+
         [HttpGet]
         public ViewResult ViewRecipe(int RecipeId)
         {
             return View(Repository.Recipes
                 .Where(r => r.RecipeId == RecipeId));
+        }
+        [HttpGet]
+        public ViewResult AddReview(int RecipeId)
+        {
+            if (RecipeId == null)
+            {
+                return View("AddReview", new Review());
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        public IActionResult AddReview(Review review)
+        {
+            //if (ModelState.IsValid)
+            //{
+                Repository.SaveReview(review);
+                TempData["message"] = $"Your review has been saved";
+                return RedirectToAction("ReadReview", review.RecipeId);
+            //}
+            //else
+            //{
+            //    return View(review);
+            //}
+        }
+        [HttpGet]
+        public ViewResult ReadReview(int RecipeId) {
+            return View(new RecipeReviewsViewModel{
+                Recipe = Repository.Recipes.FirstOrDefault(r => r.RecipeId == RecipeId), 
+                Reviews = Repository.Reviews.Where(r => r.RecipeId == RecipeId) }
+                );
         }
     }
 }
