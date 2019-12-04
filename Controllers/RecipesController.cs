@@ -60,16 +60,8 @@ namespace Recipes.Controllers
         [HttpPost]
         public IActionResult AddReview(Review review)
         {
-            //if (ModelState.IsValid)
-            //{
             Repository.SaveReview(review);
-            //TempData["message"] = $"Your review has been saved";
             return RedirectToAction("ReadReview", review.RecipeId);
-            //}
-            //else
-            //{
-            //    return View(review);
-            //}
         }
         [HttpGet]
         public ViewResult ReadReview(int RecipeId) {
