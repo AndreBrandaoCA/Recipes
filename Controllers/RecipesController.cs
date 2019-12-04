@@ -61,7 +61,7 @@ namespace Recipes.Controllers
         public IActionResult AddReview(Review review)
         {
             Repository.SaveReview(review);
-            return RedirectToAction("ReadReview", review.RecipeId);
+            return RedirectToAction("ReadReview", new { review.RecipeId });
         }
         [HttpGet]
         public ViewResult ReadReview(int RecipeId) {
