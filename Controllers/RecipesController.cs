@@ -48,7 +48,7 @@ namespace Recipes.Controllers
         [HttpGet]
         public ViewResult AddReview(int RecipeId)
         {
-            if (RecipeId == null)
+            if (RecipeId != null)
             {
                 return View("AddReview", new Review());
             }
@@ -62,9 +62,9 @@ namespace Recipes.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                Repository.SaveReview(review);
-                TempData["message"] = $"Your review has been saved";
-                return RedirectToAction("ReadReview", review.RecipeId);
+            Repository.SaveReview(review);
+            //TempData["message"] = $"Your review has been saved";
+            return RedirectToAction("ReadReview", review.RecipeId);
             //}
             //else
             //{

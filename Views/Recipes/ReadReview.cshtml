@@ -12,8 +12,9 @@
     </thead>
     @foreach (var r in Model.Reviews)
     {
-        <td>@r.Rating</td>
-        <td>@r.Description</td>
-
+        <tr>
+            <td>@r.Rating</td>
+            <td>@r.Description</td>
+        </tr>
     }
 </table>

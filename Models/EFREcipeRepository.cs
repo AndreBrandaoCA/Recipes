@@ -48,18 +48,9 @@ namespace Recipes.Models
         }
         public void SaveReview(Review review)
         {
-            if (review.RecipeId == 0)
+            if (review.ReviewId == 0)
             {
                 context.Reviews.Add(review);
-            }
-            else
-            {
-                Review reviewEntry = context.Reviews.FirstOrDefault(r => r.RecipeId == review.ReviewId);
-                if (reviewEntry != null)
-                {
-                    reviewEntry.Rating = review.Rating;
-                    reviewEntry.Description = review.Description;
-                }
             }
             context.SaveChanges();
         }
