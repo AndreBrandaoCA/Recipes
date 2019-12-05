@@ -9,6 +9,7 @@ namespace Recipes.Models
     public class Recipe
     {
         //Recipe properties
+        [Key]
         public int RecipeId { get; set; }
         [Required(ErrorMessage ="Please enter a recipe name")]
         public String RecipeName { get; set; }
