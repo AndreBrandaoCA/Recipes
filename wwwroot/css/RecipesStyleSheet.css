@@ -1,5 +1,6 @@
-﻿body{
-    background-color:blanchedalmond
+﻿body {
+    background-color: blanchedalmond;
+    width: 700px;
 }
 .content {
     width:980px;
@@ -27,8 +28,9 @@ footer{
     font-size: 12px;
     text-align:center
 }
-table{
-    margin-left:50px;
+table {
+    margin-left: 50px;
+    
 }
 .addRecipeInput {
     width: 250px;
