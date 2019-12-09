@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/layout.css" type="text/css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Adamina' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -27,15 +28,16 @@
 
 </head>
 <body id="page1">
+    
     <div id="bgSlider"></div>
     <div class="bg_spinner"></div>
-    <div class="extra">
+    <div id="extra">
         <!--==============================header=================================-->
         <header>
             <div class="top-row">
                 <div class="main">
                     <div class="wrapper">
-                        <h1><a href="~/index.html">GoodCook</a></h1>
+                        <h1><a asp-action="Home">GoodCook</a></h1>
                         <ul class="pagination">
                             <li class="current"><a href="images/bg-img1.jpg">1</a></li>
                             <li><a href="images/bg-img2.jpg">2</a></li>
@@ -57,23 +59,28 @@
                     </div>
                 </div>
             </div>
-
         </header>
+
+
+
         <!--==============================footer=================================-->
-        <article>
-            @RenderBody()
-        </article>
+        <div id="content-wrap">
+        </div>
+            <article>
+                @RenderBody()
+            </article>
         <footer>
             <div class="padding">
                 <div class="main">
                     <div class="wrapper">
                         <div class="fleft footer-text">
-                            <span>Good Cook</span> &copy; 2011
-                            <strong>Website Template by <a rel="nofollow" class="link" target="_blank" href="http://www.templatemonster.com/">TemplateMonster.com</a></strong>
+                            <span>Good Cook</span> &copy; 2019
+                            <strong>Welcome to Good cook.</strong>
+                            <strong>You Can Have Countless Of Recipes Here!</strong>
                             <!-- {%FOOTER_LINK} -->
                         </div>
                         <ul class="list-services">
-                            <li>Link to Us:</li>
+                            <li>List To Our Other Pages:</li>
                             <li><a class="tooltips" title="facebook" href="#"></a></li>
                             <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
                             <li class="item-2"><a class="tooltips" title="linkedin" href="#"></a></li>
@@ -97,6 +104,6 @@
                 });
             });
         </script>
-        </div>
+    </div>
 </body>
 </html>
